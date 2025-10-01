@@ -3,9 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <title>3x3 Flex Table with Editor.js</title>
-  <link rel="stylesheet" href="style.css">
-  <!-- Editor.js CDN -->
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    .grid {
+      display: flex;
+      flex-wrap: wrap;
+      width: 90vw;
+      margin: 20px auto;
+      border: 2px solid #333;
+    }
+    .cell {
+      flex: 1 0 33.33%; /* 3 columns */
+      min-height: 150px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      padding: 10px;
+    }
+  </style>
+  <!-- Editor.js + tools from CDN -->
   <script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@editorjs/header@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@editorjs/list@latest"></script>
 </head>
 <body>
   <div class="grid">
@@ -13,7 +34,7 @@
     <div class="cell">Row 1, Col 2</div>
     <div class="cell">Row 1, Col 3</div>
 
-    <!-- ✅ Editor.js goes here (Row 2, Col 1) -->
+    <!-- ✅ Editor.js goes here -->
     <div class="cell" id="editorjs"></div>
     <div class="cell">Row 2, Col 2</div>
     <div class="cell">Row 2, Col 3</div>
@@ -23,6 +44,21 @@
     <div class="cell">Row 3, Col 3</div>
   </div>
 
-  <script src="script.js"></script>
+  <script>
+    const editor = new EditorJS({
+      holder: 'editorjs',
+      tools: {
+        header: {
+          class: Header,
+          inlineToolbar: true
+        },
+        list: {
+          class: List,
+          inlineToolbar: true
+        }
+      },
+      placeholder: 'Start writing here with Editor.js...'
+    });
+  </script>
 </body>
 </html>
