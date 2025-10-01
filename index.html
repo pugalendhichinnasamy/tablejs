@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>5x5 Grid with Merged Cell (Editor.js)</title>
+  <title>5x5 Grid with Merged Editor.js Cell</title>
   <style>
     body {
       margin: 0;
@@ -29,57 +29,39 @@
       padding: 8px;
     }
 
-    /* ✅ Merged cell (spans rows 2–4 and cols 2–4) */
+    /* ✅ Merged editor cell */
     .editor-cell {
-      grid-column: 2 / 5; /* col 2–4 */
-      grid-row: 2 / 5;    /* row 2–4 */
+      grid-column: 2 / 5; /* spans col 2–4 */
+      grid-row: 2 / 5;    /* spans row 2–4 */
       background: #fff;
       border: 2px solid #ccc;
       border-radius: 6px;
-      overflow-y: auto;
-      padding: 0; /* editor will fill */
+      padding: 0;
+      display: flex;
+      flex-direction: column;
     }
 
     #editorjs {
-      height: 100%;
-      padding: 10px;
+      flex: 1;
+      padding: 15px;
     }
   </style>
 </head>
 <body>
   <div class="grid">
-    <div class="cell"></div>
-    <div class="cell"></div>
-    <div class="cell"></div>
-    <div class="cell"></div>
-    <div class="cell"></div>
+    <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
 
     <div class="cell"></div>
     <div class="editor-cell">
-      <!-- ✅ Editor.js mounts here -->
       <div id="editorjs"></div>
     </div>
-    <div class="cell"></div>
-    <div class="cell"></div>
-    <div class="cell"></div>
+    <div class="cell"></div><div class="cell"></div><div class="cell"></div>
 
-    <div class="cell"></div>
-    <div class="cell"></div>
-    <div class="cell"></div>
-    <div class="cell"></div>
-    <div class="cell"></div>
+    <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
 
-    <div class="cell"></div>
-    <div class="cell"></div>
-    <div class="cell"></div>
-    <div class="cell"></div>
-    <div class="cell"></div>
+    <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
 
-    <div class="cell"></div>
-    <div class="cell"></div>
-    <div class="cell"></div>
-    <div class="cell"></div>
-    <div class="cell"></div>
+    <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
   </div>
 
   <!-- Load Editor.js + tools -->
@@ -91,7 +73,7 @@
     document.addEventListener("DOMContentLoaded", () => {
       const editor = new EditorJS({
         holder: 'editorjs',
-        autofocus: true, // ✅ auto-focus so typing works immediately
+        autofocus: true, // auto-focus on load
         tools: {
           header: {
             class: Header,
@@ -102,7 +84,7 @@
             inlineToolbar: true
           }
         },
-        placeholder: '✍️ Start typing here...'
+        placeholder: '✍️ Click here and start typing...'
       });
     });
   </script>
