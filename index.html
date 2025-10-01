@@ -19,7 +19,7 @@
       grid-template-rows: repeat(5, 1fr);
       width: 90vw;
       height: 90vh;
-      gap: 5px; /* spacing between cells */
+      gap: 5px;
     }
 
     .cell {
@@ -29,18 +29,20 @@
       padding: 8px;
     }
 
-    /* ✅ Merged cell (spans rows 2-4 and cols 2-4) */
+    /* ✅ Merged cell (spans rows 2–4 and cols 2–4) */
     .editor-cell {
-      grid-column: 2 / 5; /* Col 2 → 4 */
-      grid-row: 2 / 5;    /* Row 2 → 4 */
+      grid-column: 2 / 5; /* col 2–4 */
+      grid-row: 2 / 5;    /* row 2–4 */
       background: #fff;
       border: 2px solid #ccc;
       border-radius: 6px;
       overflow-y: auto;
+      padding: 0; /* editor will fill */
     }
 
     #editorjs {
       height: 100%;
+      padding: 10px;
     }
   </style>
 </head>
@@ -53,7 +55,10 @@
     <div class="cell"></div>
 
     <div class="cell"></div>
-    <div class="editor-cell" id="editorjs"></div> <!-- ✅ Editor.js merged cell -->
+    <div class="editor-cell">
+      <!-- ✅ Editor.js mounts here -->
+      <div id="editorjs"></div>
+    </div>
     <div class="cell"></div>
     <div class="cell"></div>
     <div class="cell"></div>
@@ -86,6 +91,7 @@
     document.addEventListener("DOMContentLoaded", () => {
       const editor = new EditorJS({
         holder: 'editorjs',
+        autofocus: true, // ✅ auto-focus so typing works immediately
         tools: {
           header: {
             class: Header,
@@ -96,7 +102,7 @@
             inlineToolbar: true
           }
         },
-        placeholder: '✍️ Start writing here...'
+        placeholder: '✍️ Start typing here...'
       });
     });
   </script>
