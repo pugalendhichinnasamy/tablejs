@@ -36,11 +36,6 @@
       justify-content: flex-start;
     }
   </style>
-
-  <!-- Editor.js + tools -->
-  <script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@editorjs/header@latest"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@editorjs/list@latest"></script>
 </head>
 <body>
   <div class="grid">
@@ -58,20 +53,27 @@
     <div class="cell">Row 3, Col 3</div>
   </div>
 
+  <!-- ✅ Load Editor.js and its plugins -->
+  <script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@editorjs/header@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@editorjs/list@latest"></script>
+
   <script>
-    const editor = new EditorJS({
-      holder: 'editorjs',
-      tools: {
-        header: {
-          class: Header,
-          inlineToolbar: true
+    document.addEventListener("DOMContentLoaded", () => {
+      const editor = new EditorJS({
+        holder: 'editorjs',
+        tools: {
+          header: {
+            class: Header,
+            inlineToolbar: true
+          },
+          list: {
+            class: List,
+            inlineToolbar: true
+          }
         },
-        list: {
-          class: List,
-          inlineToolbar: true
-        }
-      },
-      placeholder: 'Start writing here with Editor.js...'
+        placeholder: '✍️ Start writing here with Editor.js...'
+      });
     });
   </script>
 </body>
