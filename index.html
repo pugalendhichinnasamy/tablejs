@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>3x3 Flex Table with Editor.js</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Editor.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest"></script>
+</head>
+<body>
+  <div class="grid">
+    <div class="cell">Row 1, Col 1</div>
+    <div class="cell">Row 1, Col 2</div>
+    <div class="cell">Row 1, Col 3</div>
+
+    <!-- ✅ Editor.js goes here (Row 2, Col 1) -->
+    <div class="cell" id="editorjs"></div>
+    <div class="cell">Row 2, Col 2</div>
+    <div class="cell">Row 2, Col 3</div>
+
+    <div class="cell">Row 3, Col 1</div>
+    <div class="cell">Row 3, Col 2</div>
+    <div class="cell">Row 3, Col 3</div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
