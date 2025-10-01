@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>3x3 Flex Grid with Editor.js</title>
+  <title>3x4 Flex Grid with Editor.js</title>
   <style>
     body {
       margin: 0;
@@ -12,28 +12,24 @@
     .grid {
       display: flex;
       flex-wrap: wrap;
-      width: 600px;           /* fixed width so columns align */
-      margin: 40px auto;
-      border: 3px solid #333; /* outer border */
+      width: 90vw;   /* responsive width */
+      height: 90vh;  /* take most of viewport height */
+      margin: 0 auto;
     }
 
     .cell {
-      flex: 1 0 33.33%;       /* 3 equal columns */
-      height: 150px;          /* fixed height so rows align */
-      border: 1px solid #999; /* inner grid lines */
+      flex: 1 0 33.33%;   /* 3 columns */
+      height: 25%;        /* 4 rows */
       box-sizing: border-box;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      padding: 10px;
+      /* ⚠️ No visible borders, looks like a page layout */
     }
 
-    /* Special cell for Editor.js */
+    /* Special styling for the editor cell */
     #editorjs {
-      display: block;
-      text-align: left;
-      padding: 10px;
-      align-items: flex-start;
-      justify-content: flex-start;
+      background: #f9f9f9;
+      border-radius: 6px;
+      overflow-y: auto;
     }
   </style>
 </head>
@@ -43,7 +39,7 @@
     <div class="cell">Row 1, Col 2</div>
     <div class="cell">Row 1, Col 3</div>
 
-    <!-- ✅ Editor.js here (Row 2, Col 1) -->
+    <!-- ✅ Place Editor.js in Row 2, Col 1 -->
     <div class="cell" id="editorjs"></div>
     <div class="cell">Row 2, Col 2</div>
     <div class="cell">Row 2, Col 3</div>
@@ -51,9 +47,13 @@
     <div class="cell">Row 3, Col 1</div>
     <div class="cell">Row 3, Col 2</div>
     <div class="cell">Row 3, Col 3</div>
+
+    <div class="cell">Row 4, Col 1</div>
+    <div class="cell">Row 4, Col 2</div>
+    <div class="cell">Row 4, Col 3</div>
   </div>
 
-  <!-- ✅ Load Editor.js and its plugins -->
+  <!-- Load Editor.js + tools -->
   <script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest"></script>
   <script src="https://cdn.jsdelivr.net/npm/@editorjs/header@latest"></script>
   <script src="https://cdn.jsdelivr.net/npm/@editorjs/list@latest"></script>
@@ -72,7 +72,7 @@
             inlineToolbar: true
           }
         },
-        placeholder: '✍️ Start writing here with Editor.js...'
+        placeholder: '✍️ Start writing here...'
       });
     });
   </script>
