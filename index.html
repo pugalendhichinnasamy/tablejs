@@ -2,35 +2,45 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>3x4 Flex Grid with Editor.js</title>
+  <title>5x5 Grid with Merged Cell (Editor.js)</title>
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .grid {
-      display: flex;
-      flex-wrap: wrap;
-      width: 100vw;
-      height: 100vh;
-      margin: 0;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: repeat(5, 1fr);
+      width: 90vw;
+      height: 90vh;
+      gap: 5px; /* spacing between cells */
     }
 
     .cell {
-      flex: 1 0 33.33%;  /* 3 columns */
-      height: 25%;       /* 4 rows */
+      background: #f0f0f0;
+      border-radius: 4px;
       box-sizing: border-box;
-      padding: 10px;
+      padding: 8px;
     }
 
-    /* Editor cell styling */
-    #editorjs {
-      background: #f9f9f9;
+    /* ✅ Merged cell (spans rows 2-4 and cols 2-4) */
+    .editor-cell {
+      grid-column: 2 / 5; /* Col 2 → 4 */
+      grid-row: 2 / 5;    /* Row 2 → 4 */
+      background: #fff;
+      border: 2px solid #ccc;
       border-radius: 6px;
-      padding: 10px;
-      height: 100%;
       overflow-y: auto;
+    }
+
+    #editorjs {
+      height: 100%;
     }
   </style>
 </head>
@@ -39,16 +49,29 @@
     <div class="cell"></div>
     <div class="cell"></div>
     <div class="cell"></div>
-
-    <!-- ✅ Editor.js in Row 2, Col 1 -->
-    <div class="cell" id="editorjs"></div>
     <div class="cell"></div>
     <div class="cell"></div>
 
     <div class="cell"></div>
+    <div class="editor-cell" id="editorjs"></div> <!-- ✅ Editor.js merged cell -->
+    <div class="cell"></div>
     <div class="cell"></div>
     <div class="cell"></div>
 
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+
+    <div class="cell"></div>
+    <div class="cell"></div>
     <div class="cell"></div>
     <div class="cell"></div>
     <div class="cell"></div>
