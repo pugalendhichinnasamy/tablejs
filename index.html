@@ -66,24 +66,26 @@
 
   <!-- Load Editor.js + tools -->
   <script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@editorjs/header@latest"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@editorjs/list@latest"></script>
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/header@latest"></script>
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/list@latest"></script>
+
 
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const editor = new EditorJS({
-        holder: 'editorjs',
-        autofocus: true, // auto-focus on load
-        tools: {
-          header: {
-            class: Header,
-            inlineToolbar: true
-          },
-          list: {
-            class: List,
-            inlineToolbar: true
-          }
-        },
+    const editor = new EditorJS({
+  holder: 'editorjs',
+  tools: {
+    header: {
+      class: Header,
+      inlineToolbar: true
+    },
+    list: {
+      class: List,   // ✅ works only if list plugin loaded
+      inlineToolbar: true
+    }
+  },
+  placeholder: '✍️ Start typing here...'
+});
+
         placeholder: '✍️ Click here and start typing...'
       });
     });
